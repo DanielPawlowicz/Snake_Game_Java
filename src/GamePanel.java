@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -71,6 +73,9 @@ public class GamePanel extends JPanel implements ActionListener{
 						g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
 					}
 				}
+			}
+			else {
+				gameOver(g);
 			}
 			
 		}
@@ -145,6 +150,11 @@ public class GamePanel extends JPanel implements ActionListener{
 	}
 	
 	public void gameOver(Graphics g) {
+		
+		g.setColor(Color.red);
+		g.setFont(new Font("Verdana", Font.BOLD, 75));
+		FontMetrics metrics = getFontMetrics(g.getFont());
+		g.drawString("Game Over", (SCREEN_WIDTH - metrics.stringWidth("Game Over"))/2, SCREEN_HEIGHT/2);
 		
 	}
 	
