@@ -73,6 +73,12 @@ public class GamePanel extends JPanel implements ActionListener{
 						g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
 					}
 				}
+				
+				g.setColor(Color.red);
+				g.setFont(new Font("Verdana", Font.BOLD, 40));
+				FontMetrics metrics = getFontMetrics(g.getFont());
+				g.drawString("Score: "+applesEaten, (SCREEN_WIDTH - metrics.stringWidth("Score: "+applesEaten))/2, g.getFont().getSize());
+				
 			}
 			else {
 				gameOver(g);
